@@ -15,7 +15,11 @@
                     </ul>
                 </div>
                 <div class="col-md-7 bg-white sub-panel sub-form-panel pt-4">
-                    <slot name="main"></slot>
+                    <div class="card border-0">
+                        <div class="card-body pt-0 p-0 px-md-3">
+                            <slot name="main"></slot>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-3 d-none d-md-block sub-panel sub-info-panel p-3 pt-4 small">
                     <slot name="info"></slot>
@@ -74,5 +78,15 @@ const startCompanyStore = useStartCompanyStore()
 .isActive {
     color: var(--primary-color) !important;
     border-color: var(--primary-color);
+}
+
+@media (max-width: 767px) {
+    .side-panel {
+        display: none;
+    }
+
+    .main-panel {
+        margin: 5px 5px 5px 5px;
+    }
 }
 </style>

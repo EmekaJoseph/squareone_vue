@@ -21,9 +21,16 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
         { stage: 12, name: 'Pay' },
     ]
 
+    function swithStage(command: string) {
+        if (command == '+') currentStage.value++
+        else currentStage.value--
+        window.scrollTo(0, 0)
+    }
+
     return {
         currentStage,
         menus,
-        isActiveMenu
+        isActiveMenu,
+        swithStage
     }
 })
