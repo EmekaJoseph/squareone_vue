@@ -1,44 +1,53 @@
 <template>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-brand">Welcome back John!</span>
+            <button class="btn btn-lg p-1 py-0 d-md-none" data-bs-toggle="offcanvas"
+                data-bs-target="#sideBarMobileOffcanvas" aria-controls="sideBarMobileOffcanvas">
+                <i class="bi bi-justify fs-3"></i>
             </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#" aria-current="page">Home
-                            <span class="visually-hidden">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="#">Action 1</a>
-                            <a class="dropdown-item" href="#">Action 2</a>
+
+            <div class="d-none d-md-block">
+                <span class="mx-4 dropdown">
+                    <span class="position-relative  cursor-pointer bell dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-bell "></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle p-1 mt-2 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden"></span>
+                        </span>
+
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <ul class="list-group list-group-flush  ">
+                                <li class="dropdown-item list-group-item">Menu 1</li>
+                                <li class=" dropdown-item list-group-item">Menu 2</li>
+                                <li class=" dropdown-item list-group-item">Menu 2</li>
+                            </ul>
                         </div>
-                    </li>
-                </ul>
-                <form class="d-flex my-2 my-lg-0">
-                    <input class="form-control me-sm-2" type="text" placeholder="Search" />
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        Search
-                    </button>
-                </form>
+                    </span>
+
+                </span>
+                <span class="line-right"> </span>
+
+                <span class=" mx-4 me-5 dropdown">
+                    <span data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        class="dropdown-toggle"><i class="bi bi-circle-fill text-light-emphasis "></i>
+                        John Doe <i class="bi bi-chevron-down"></i></span>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">After divider action</a>
+                    </div>
+                </span>
+
             </div>
         </div>
     </nav>
-
+    <sideBarMobile />
 </template>
 
 <script lang="ts" setup>
-
+import sideBarMobile from './sideBarMobile.vue';
 </script>
 
 
@@ -51,5 +60,18 @@
     .navbar {
         margin-left: 0px;
     }
+}
+
+.bell {
+    padding-left: 6px;
+    padding-top: 6px;
+}
+
+.dropdown-toggle::after {
+    content: none !important;
+}
+
+.dropdown-menu {
+    border-radius: 0px;
 }
 </style>

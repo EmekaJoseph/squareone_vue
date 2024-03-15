@@ -26,3 +26,8 @@ section {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.line-right {
+    border-right: 1px solid #c5c0c0;
+    /* padding-right: 10px; */
+}

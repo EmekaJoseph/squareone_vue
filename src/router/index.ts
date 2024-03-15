@@ -14,7 +14,15 @@ const router = createRouter({
       path: '/start_company',
       name: 'Start',
       component: () => import('../views/StartCompany/StartCompany_index.vue')
-    }
+    },
+
+    {
+      path: '/account',
+      component: () => import('../views/Account/Account_template.vue'),
+      children: [
+        { path: 'dashboard', name: 'Dashboard', alias: '/dashboard', component: () => import('../views/Account/Dashboard.vue') },
+      ],
+    },
   ]
 })
 

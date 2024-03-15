@@ -16,7 +16,7 @@ import headBar from '@/components/headBar.vue';
 
 <style scoped>
 .main-content {
-    padding-top: 70px;
+    padding-top: 40px;
     padding-bottom: 100px;
     /* background-color: #f4f2ee87; */
 }

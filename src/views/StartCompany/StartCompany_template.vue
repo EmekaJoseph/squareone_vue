@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-12 p-lg-3 p-2 shadow-sm head-panel">
                     <button class="btn btn-lg p-1 py-0 d-md-none" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        data-bs-target="#startMobileOffcanvas" aria-controls="startMobileOffcanvas">
                         <i class="bi bi-justify fs-3"></i>
                     </button>
                     Start your Company
