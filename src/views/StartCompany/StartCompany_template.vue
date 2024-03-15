@@ -1,38 +1,75 @@
 <template>
-    <div class="side-panel"></div>
+    <div class="side-panel">
+        <ul class="list-group list-group-flush mt-4">
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/vector-10.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/grid-four.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/main-component.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/document-upload.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/people.png" alt="">
+            </li>
+        </ul>
+
+
+        <ul class="list-group list-group-flush" style="margin-top: 120px;">
+
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/profile.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/setting-2.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/money.png" alt="">
+            </li>
+            <li class="list-group-item border-0 bg-transparent">
+                <img src="/icons/sidebar/message-question.png" alt="">
+            </li>
+        </ul>
+
+    </div>
     <div class="main-panel shadow-sm">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 p-lg-3 p-2 shadow-sm head-panel">
+                    <button class="btn btn-lg p-1 py-0 d-md-none" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <i class="bi bi-justify fs-3"></i>
+                    </button>
                     Start your Company
                 </div>
-                <div class="col-2 d-none d-md-block sub-panel sub-menu-panel" style="background-color: #F5F9FC;">
-                    <ul class="list-group list-group-flush mt-4">
-                        <li v-for="menu in startCompanyStore.menus" class="list-group-item"
-                            :class="{ 'isActive': startCompanyStore.isActiveMenu(menu.stage) }">
-                            {{ menu.name }}
-                        </li>
-                    </ul>
+                <div class="col-2 d-none d-md-block min-vh-100 sub-menu-panel">
+                    <StartCompany_menulist />
                 </div>
-                <div class="col-md-7 bg-white sub-panel sub-form-panel pt-4">
+                <div class="col-md-7 bg-white min-vh-100 sub-form-panel pt-4">
                     <div class="card border-0">
                         <div class="card-body pt-0 p-0 px-md-3">
                             <slot name="main"></slot>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 d-none d-md-block sub-panel sub-info-panel p-3 pt-4 small">
+                <div class="col-3 d-none d-md-block min-vh-100 sub-info-panel p-3 pt-4 small">
                     <slot name="info"></slot>
-
                 </div>
             </div>
         </div>
     </div>
+    <!-- offcanvas -->
+    <StartCompany_mobilemenu />
 </template>
 
 <script lang="ts" setup>
-import { useStartCompanyStore } from './stores/StartCompany_store';
-
+import { useStartCompanyStore } from './StartCompany_store';
+import StartCompany_menulist from './StartCompany_menulist.vue';
+import StartCompany_mobilemenu from './StartCompany_mobilemenu.vue';
 const startCompanyStore = useStartCompanyStore()
 </script>
 
@@ -59,25 +96,9 @@ const startCompanyStore = useStartCompanyStore()
     z-index: 10;
 }
 
-.sub-panel {
-    min-height: 100vh;
-}
-
-.sub-info-panel {
+.sub-info-panel,
+.sub-menu-panel {
     background-color: #F5F9FC;
-}
-
-.list-group-item {
-    background: transparent;
-    border: none;
-    border-left: 1px solid #E2E3E5;
-    font-weight: 400;
-    padding-block: 4px;
-}
-
-.isActive {
-    color: var(--primary-color) !important;
-    border-color: var(--primary-color);
 }
 
 @media (max-width: 767px) {

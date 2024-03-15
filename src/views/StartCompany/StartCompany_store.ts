@@ -13,24 +13,24 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
         { stage: 4, name: 'Address' },
         { stage: 5, name: 'Founders/Directors' },
         { stage: 6, name: 'Ownership' },
-        { stage: 7, name: 'Founders/Directors' },
-        { stage: 8, name: 'Company Secretary' },
-        { stage: 9, name: 'Source' },
-        { stage: 10, name: 'Activities' },
-        { stage: 11, name: 'Sign' },
-        { stage: 12, name: 'Pay' },
+        { stage: 7, name: 'Company Secretary' },
+        { stage: 8, name: 'Source' },
+        { stage: 9, name: 'Activities' },
+        { stage: 10, name: 'Uploads' },
+        { stage: 11, name: 'Summary' },
+        { stage: 12, name: 'Sign' },
+        { stage: 13, name: 'Pay' },
     ]
 
-    function swithStage(command: string) {
-        if (command == '+') currentStage.value++
-        else currentStage.value--
-        window.scrollTo(0, 0)
+    function switchStage(command: string) {
+        currentStage.value = Math.max(0, currentStage.value + (command === '+' ? 1 : -1));
+        window.scrollTo(0, 0);
     }
 
     return {
         currentStage,
         menus,
         isActiveMenu,
-        swithStage
+        switchStage
     }
 })

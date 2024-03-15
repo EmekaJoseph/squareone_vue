@@ -147,7 +147,7 @@
                 <button class="btn btn-outline-dark me-3">
                     <i class="bi bi-arrow-left"></i> Back
                 </button>
-                <button @click="swithStage('+')" class="btn btn-primary">
+                <button @click="switchStage('+')" class="btn btn-primary">
                     Save & Continue <i class="bi bi-arrow-right"></i>
                 </button>
             </div>
@@ -193,7 +193,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
-import { useStartCompanyStore } from '../stores/StartCompany_store';
+import { useStartCompanyStore } from '../StartCompany_store';
 
 const isThird = ref(false)
 const isForth = ref(false)
@@ -221,8 +221,8 @@ function removeForm() {
     }
 }
 
-function swithStage(command: string) {
-    startCompanyStore.swithStage(command)
+function switchStage(command: string) {
+    startCompanyStore.switchStage(command)
 }
 
 const startCompanyStore = useStartCompanyStore()

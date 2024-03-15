@@ -10,8 +10,18 @@
 
                 <div class="row g-2 mt-1">
                     <div class="col-12">
-                        <textarea class="form-control" rows="6"></textarea>
+                        <input class="form-control" type="text">
                     </div>
+                    <div class="col-12">
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12">
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="col-12">
+                        <input class="form-control" type="text">
+                    </div>
+
                     <div class="col-md-12">
                         <select class="form-select">
                             <option selected>Country</option>
@@ -23,10 +33,10 @@
 
 
             <div class="movement-buttons my-5">
-                <button @click="swithStage('-')" class="btn btn-outline-dark me-3">
+                <button @click="switchStage('-')" class="btn btn-outline-dark me-3">
                     <i class="bi bi-arrow-left"></i> Back
                 </button>
-                <button @click="swithStage('+')" class="btn btn-primary">
+                <button @click="switchStage('+')" class="btn btn-primary">
                     Save & Continue <i class="bi bi-arrow-right"></i>
                 </button>
             </div>
@@ -59,36 +69,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
-import { useStartCompanyStore } from '../stores/StartCompany_store';
+import { useStartCompanyStore } from '../StartCompany_store';
 
-const isThird = ref(false)
-const isForth = ref(false)
-const isFifth = ref(false)
 
-function addForm() {
-    const fields = [isThird, isForth, isFifth];
-
-    for (const field of fields) {
-        if (!field.value) {
-            field.value = true;
-            return;
-        }
-    }
-}
-
-function removeForm() {
-    const fields = [isFifth, isForth, isThird];
-
-    for (const field of fields) {
-        if (field.value) {
-            field.value = false;
-            return;
-        }
-    }
-}
-
-function swithStage(command: string) {
-    startCompanyStore.swithStage(command)
+function switchStage(command: string) {
+    startCompanyStore.switchStage(command)
 }
 
 const startCompanyStore = useStartCompanyStore()
