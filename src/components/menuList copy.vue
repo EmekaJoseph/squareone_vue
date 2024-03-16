@@ -27,17 +27,71 @@ import { RouterLink } from 'vue-router';
                         <div class="accordion-body">
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a class="nav-link" href="#">
-                                        <router-link to="/account/company/company_info">
-                                            <i class="bi bi-dot"></i> AB Limited
-                                        </router-link>
+                                        <div class="accordion accordion-flush" id="subAccordionCompanyOne">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="flush-headingOne">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                        aria-expanded="true" aria-controls="flush-collapseOne">
+                                                        <i class="bi bi-dot"></i> AB Limited
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                                    aria-labelledby="flush-headingOne"
+                                                    data-bs-parent="#subAccordionCompanyOne">
+                                                    <div class="accordion-body ps-2">
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item py-1">
+                                                                <i class="bi bi-cloud-arrow-up me-1"></i>
+                                                                <router-link
+                                                                    to="/account/company/submitted_form">Submitted
+                                                                    Form</router-link>
+                                                            </li>
+                                                            <li class="list-group-item py-1">
+                                                                <i class="bi bi-patch-exclamation me-1"></i>
+                                                                <router-link to="/account/company/company_info">Company
+                                                                    Info</router-link>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </a>
                                 </li>
 
                                 <li class="nav-item"><a class="nav-link" href="#">
-                                        <!-- <router-link to="/account/company/company_info"> -->
-                                        <i class="bi bi-dot"></i> CD Limited
-                                        <!-- </router-link> -->
+                                        <div class="accordion accordion-flush" id="subAccordionCompanyTwo">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="flush-headingTwo">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                                        aria-expanded="true" aria-controls="flush-collapseTwo">
+                                                        <i class="bi bi-dot"></i> CD Limited
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                                    aria-labelledby="flush-headingTwo"
+                                                    data-bs-parent="#subAccordionCompanyTwo">
+                                                    <div class="accordion-body ps-2">
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item py-1">
+                                                                <i class="bi bi-cloud-arrow-up"></i>
+                                                                Submitted Form
+                                                            </li>
+                                                            <li class="list-group-item py-1">
+                                                                <i class="bi bi-patch-exclamation"></i>
+                                                                Company Info
+                                                            </li>
+                                                        </ul>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </a>
                                 </li>
 

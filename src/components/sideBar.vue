@@ -23,10 +23,11 @@ const router = useRouter()
     top: 0;
     left: 0;
     bottom: 0;
-    width: 250px !important;
+    width: 300px !important;
     /* border-right: 1px solid #cccccc44; */
     background-color: var(--sidebar-bg);
     overflow-y: auto;
+    padding-right: 0px;
 }
 
 .brand-icon {

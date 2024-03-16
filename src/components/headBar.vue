@@ -53,7 +53,7 @@ import sideBarMobile from './sideBarMobile.vue';
 
 <style lang="css" scoped>
 .navbar {
-    margin-left: 250px;
+    margin-left: 300px;
 }
 
 @media (max-width: 767px) {

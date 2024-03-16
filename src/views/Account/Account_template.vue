@@ -23,7 +23,7 @@ import headBar from '@/components/headBar.vue';
 
 @media (min-width: 767px) {
     .main-content {
-        margin-left: 250px;
+        margin-left: 300px;
     }
 }
 </style>
