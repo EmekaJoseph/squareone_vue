@@ -64,8 +64,8 @@ import { RouterLink } from 'vue-router';
                         data-bs-parent="#accordionMenuADocument">
                         <div class="accordion-body">
                             <ul class="nav flex-column">
-                                <li class="nav-item"><a class="nav-link" href="#">Sub Menu 1</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Sub Menu 2</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Drivers License</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Birth Certificate</a></li>
                             </ul>
                         </div>
                     </div>
@@ -89,8 +89,8 @@ import { RouterLink } from 'vue-router';
                         aria-labelledby="menu1Heading" data-bs-parent="#accordionMenuUsers">
                         <div class="accordion-body">
                             <ul class="nav flex-column">
-                                <li class="nav-item"><a class="nav-link" href="#">Sub Menu 1</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Sub Menu 2</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">John Doe</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Micheal Kachi</a></li>
                             </ul>
                         </div>
                     </div>

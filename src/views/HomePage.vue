@@ -61,7 +61,7 @@ import { RouterLink } from 'vue-router';
                 </div>
               </section>
 
-              <section style="margin-top: 92px;">
+              <section style="margin-top: 65px;">
                 <div class=" text-muted h6">FOR CORPORATE DIRECTORS AND MEMBERS</div>
                 <div class="row g-3 mt-1">
                   <div class="col-md-6">

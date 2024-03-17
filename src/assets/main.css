@@ -31,3 +31,8 @@ section {
     border-right: 1px solid #c5c0c0;
     /* padding-right: 10px; */
 }
+
+th {
+    font-weight: bold;
+    background-color: var(--bs-gray-200) !important;
+}
