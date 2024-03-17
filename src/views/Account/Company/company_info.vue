@@ -9,9 +9,9 @@
                     <small>Complete your application, to set up your company</small>
                 </div>
                 <div class="col-lg-2 d-flex justify-content-lg-end align-items-lg-center">
-                    <button class="btn btn-primary">
+                    <router-link class="btn btn-primary" to="/start_company">
                         Resume <i class="bi bi-arrow-right"></i>
-                    </button>
+                    </router-link>
                 </div>
             </div>
         </div>

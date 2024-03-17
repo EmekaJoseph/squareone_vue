@@ -13,6 +13,9 @@
 import { useRouter } from 'vue-router';
 import menuList from './menuList.vue';
 
+import { useTemplateStore } from '@/stores/templateStore';
+const templateStore = useTemplateStore()
+
 const router = useRouter()
 
 </script>
@@ -23,7 +26,7 @@ const router = useRouter()
     top: 0;
     left: 0;
     bottom: 0;
-    width: 300px !important;
+    width: v-bind('templateStore.sidebarWidth') !important;
     /* border-right: 1px solid #cccccc44; */
     background-color: var(--sidebar-bg);
     overflow-y: auto;

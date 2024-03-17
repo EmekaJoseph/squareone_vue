@@ -13,6 +13,7 @@
     <Sign v-if="startCompanyStore.currentStage == 12" />
     <Pay v-if="startCompanyStore.currentStage == 13" />
 </template>
+
 <script lang="ts" setup>
 import { useStartCompanyStore } from './StartCompany_store';
 

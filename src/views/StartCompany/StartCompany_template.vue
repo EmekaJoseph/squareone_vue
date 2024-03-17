@@ -2,10 +2,14 @@
     <div class="side-panel">
         <ul class="list-group list-group-flush mt-4">
             <li class="list-group-item border-0 bg-transparent">
-                <img src="/icons/sidebar/vector-10.png" alt="">
+                <router-link to="/">
+                    <img src="/icons/sidebar/vector-10.png" alt="">
+                </router-link>
             </li>
             <li class="list-group-item border-0 bg-transparent">
-                <img src="/icons/sidebar/grid-four.png" alt="">
+                <router-link to="/dashboard">
+                    <img src="/icons/sidebar/grid-four.png" alt="">
+                </router-link>
             </li>
             <li class="list-group-item border-0 bg-transparent">
                 <img src="/icons/sidebar/main-component.png" alt="">

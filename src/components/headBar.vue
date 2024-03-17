@@ -48,12 +48,15 @@
 
 <script lang="ts" setup>
 import sideBarMobile from './sideBarMobile.vue';
+
+import { useTemplateStore } from '@/stores/templateStore';
+const templateStore = useTemplateStore()
 </script>
 
 
 <style lang="css" scoped>
 .navbar {
-    margin-left: 300px;
+    margin-left: v-bind('templateStore.sidebarWidth');
 }
 
 @media (max-width: 767px) {
