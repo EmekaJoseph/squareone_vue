@@ -25,6 +25,14 @@ const router = createRouter({
         { path: 'company/company_info', name: 'Company Details', component: () => import('../views/Account/Company/company_info.vue') },
       ],
     },
+
+
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      // component: () => import('../views/PageNotFound.vue')
+      component: HomePage
+    },
   ]
 })
 
