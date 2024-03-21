@@ -17,6 +17,12 @@ import '@vuepic/vue-datepicker/dist/main.css'
 
 import './assets/main.css'
 
+// npm install -S vue-sweetalert2
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+// https://www.npmjs.com/package/vue-toast-notification
+import 'vue-toast-notification/dist/theme-sugar.css';
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 

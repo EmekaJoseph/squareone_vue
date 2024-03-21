@@ -15,7 +15,9 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted } from 'vue'
 import { useStartCompanyStore } from './StartCompany_store';
+import api from '@/stores/Helpers/axios'
 
 import Name from './pages/Name.vue';
 import Structure from './pages/Structure.vue';
@@ -32,6 +34,14 @@ import Sign from './pages/Sign.vue';
 import Pay from './pages/Pay.vue';
 
 const startCompanyStore = useStartCompanyStore()
+
+onMounted(async () => {
+    await startCompanyStore.getCompanyInProgress()
+    startCompanyStore.getBusinessNatures()
+    startCompanyStore.getCountries()
+
+})
+
 </script>
 
 <style lang="css" scoped></style>
