@@ -1,6 +1,7 @@
 import { reactive, ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import api from '@/stores/Helpers/axios'
+import jsonData from './StartCompany_jsonData.json'
 
 
 export const useStartCompanyStore = defineStore('startCompanyStore', () => {
@@ -10,6 +11,12 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
     const businessNatures = ref<any[]>([])
     const companyInProgress = ref<any>({})
     const countries = ref<any[]>([])
+    const checkedEntityCapacity = ref<any[]>([])
+    const hasCompletedFounders = ref<boolean>(false)
+
+    // hard-coded data
+    const employmentStatusList = jsonData.employmentStatusList
+    const currencies = jsonData.currencies
 
     const menus = [
         { stage: 1, name: 'Structure' },
@@ -56,7 +63,9 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
     const getBusinessNatures = async () => {
         try {
             const { data } = await api.businessNature();
-            businessNatures.value = data.data?.business_natiure ?? []
+            console.log(data);
+
+            businessNatures.value = data.data?.business_nature ?? []
         } catch (error) {
             console.log(error);
         }
@@ -74,6 +83,10 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
         getCompanyInProgress,
         companyInProgress,
         getCountries,
-        countries
+        countries,
+        checkedEntityCapacity,
+        employmentStatusList,
+        currencies,
+        hasCompletedFounders
     }
 })

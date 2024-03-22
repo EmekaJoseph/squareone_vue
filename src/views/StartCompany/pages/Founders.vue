@@ -11,13 +11,13 @@
 
                 <div class="row justify-content- mt-1">
                     <div @click="founderType = 'individual'" class="col-4 cursor-pointer">
-                        <i v-if="founderType == 'individual'" class="bi bi-circle-fill text-primary me-1"></i>
+                        <i v-if="founderType == 'individual'" class="bi bi-record-circle-fill text-primary me-1"></i>
                         <i v-else class="bi bi-circle me-1"></i>
                         Individual
                     </div>
 
                     <div @click="founderType = 'corporate'" class="col-4 cursor-pointer">
-                        <i v-if="founderType == 'corporate'" class="bi bi-circle-fill text-primary me-1"></i>
+                        <i v-if="founderType == 'corporate'" class="bi bi-record-circle-fill text-primary me-1"></i>
                         <i v-else class="bi bi-circle me-1"></i>
                         Corporate
                     </div>
@@ -29,15 +29,16 @@
                 <div class="row justify-content- mt-1">
                     <div class="col-4 ">
                         <div class="form-check ">
-                            <input class="form-check-input cursor-pointer" type="checkbox" id="shareholder"
-                                value="shareholder" />
+                            <input v-model="startCompanyStore.checkedEntityCapacity"
+                                class="form-check-input cursor-pointer" type="checkbox" id="shareholder" value="1" />
                             <label class="form-check-label" for="shareholder">Shareholder</label>
                         </div>
                     </div>
 
                     <div class="col-4 ">
                         <div class="form-check ">
-                            <input class="form-check-input" type="checkbox" id="director" value="director" />
+                            <input class="form-check-input" type="checkbox" id="director" value="2"
+                                v-model="startCompanyStore.checkedEntityCapacity" />
                             <label class="form-check-label" for="director">Director</label>
                         </div>
                     </div>

@@ -134,6 +134,22 @@ export default {
         return dd.value
     },
 
+    ageInYears: (dateOfBirth: Date) => {
+        // Get today's date in milliseconds
+        const today = Date.now();
+
+        // Convert the date of birth to milliseconds
+        const dobInMilliseconds = new Date(dateOfBirth).getTime();
+
+        // Calculate the difference in milliseconds
+        const timeElapsed = today - dobInMilliseconds;
+
+        // Convert the difference to years (ignoring leap years and days for simplicity)
+        const ageInYears = Math.floor(timeElapsed / (1000 * 60 * 60 * 24 * 365));
+
+        return ageInYears;
+    },
+
     timeAgo: (date: Date) => {
         const timeAgo = useTimeAgo(date);
         return timeAgo.value;

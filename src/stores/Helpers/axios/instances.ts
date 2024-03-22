@@ -14,18 +14,6 @@ const contentHeaders = (type: 'form' | 'json') => {
     }
 }
 
-// create instances #######################################################
-const $instance = axios.create({
-    baseURL: apiURL,
-    headers: contentHeaders('json')
-})
-
-const $instanceForm = axios.create({
-    baseURL: apiURL,
-    headers: contentHeaders('form'),
-})
-
-// create interceptor for renewing token ##########################################3
 const setAuthorization = (config: any) => {
     // const token = Cookies.get('_tokn');
     const token = '1|tpqrFc7dTkg8IoB7IpYutRjBqgvjI9wypkAh4ful23fc99b6'
@@ -35,6 +23,16 @@ const setAuthorization = (config: any) => {
 
     return config;
 };
+
+const $instance = axios.create({
+    baseURL: apiURL,
+    headers: contentHeaders('json')
+})
+
+const $instanceForm = axios.create({
+    baseURL: apiURL,
+    headers: contentHeaders('form'),
+})
 
 // Set interceptors
 $instance.interceptors.request.use(setAuthorization);
