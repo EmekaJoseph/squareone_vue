@@ -51,6 +51,42 @@
         </template>
 
         <template #info>
+            <section v-if="foundersAdded.length">
+                <div class="card small">
+                    <div class="card-header border-0">FOUNDERS ADDED
+
+                        <span class="badge rounded-pill text-bg-warning small">{{ foundersAdded.length }}</span>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in foundersAdded" :key="item">
+                                        <td>{{ item.first_name + ' ' + item.last_name }}</td>
+                                        <td>{{ item.entity_type_id == '1' ? 'Individual' : 'Corporate' }}</td>
+                                        <td>
+                                            <button @click="deleteFounder(item)"
+                                                class="btn btn-link text-danger p-0 m-0">
+                                                <i class="bi bi-x-lg"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <section>
                 <div class="fw-bold">
                     What are the basic requirements to be a founder?
@@ -81,20 +117,39 @@
                     residential address as it is mandatory.
                 </div>
             </section>
+
+
         </template>
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
+import useFxn from '@/stores/Helpers/useFunctions';
 
 import Founders_corporate from './Founders_corporate.vue';
 import Founders_individual from './Founders_individual.vue';
 
 const founderType = ref<'individual' | 'corporate'>('individual')
-
 const startCompanyStore = useStartCompanyStore()
+
+const foundersAdded = computed(() => {
+    const individual = startCompanyStore.companyInProgress?.company_entity[0]?.individual ?? []
+    const corporate = startCompanyStore.companyInProgress?.company_entity[0]?.corporate ?? []
+
+    return [...individual, ...corporate]
+})
+
+
+function deleteFounder(item: any) {
+    useFxn.confirm('Delete this Record?', 'Yes, Delete')
+        .then((resp) => {
+            if (resp.isConfirmed) {
+                // 
+            }
+        })
+}
 
 </script>
 <style lang="css" scoped>

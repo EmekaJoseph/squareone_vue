@@ -39,8 +39,8 @@ onMounted(async () => {
     await startCompanyStore.getCompanyInProgress()
     startCompanyStore.getBusinessNatures()
     startCompanyStore.getCountries()
-
 })
+
 
 </script>
 

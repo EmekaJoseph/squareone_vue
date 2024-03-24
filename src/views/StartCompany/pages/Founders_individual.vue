@@ -160,30 +160,14 @@
         <button @click="moveBack" class="btn btn-outline-dark me-3">
             <i class="bi bi-arrow-left"></i> Back
         </button>
-        <button :disabled="startCompanyStore.hasCompletedFounders" v-if="!form.isSaving" @click="saveAndContinue"
-            class="btn btn-primary">
-            Save & Continue <i class="bi bi-arrow-right"></i>
+        <button v-if="!form.isSaving" @click="saveAndContinue" class="btn btn-primary">
+            Save Record <i class="bi bi-arrow-right"></i>
         </button>
         <button v-else class="btn btn-primary" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Saving, Please wait
         </button>
     </div>
-
-    <section v-if="startCompanyStore.hasCompletedFounders">
-        <div class="row g-1">
-            <div class="col-md-4">
-                <button @click="addNewFounder" class="btn btn-outline-success">
-                    <i class="bi bi-plus-circle-dotted"></i> Add New Founder?
-                </button>
-            </div>
-            <div class="col-md-4">
-                <button @click="startCompanyStore.switchStage('+')" class="btn btn-secondary">
-                    Go to Phase <i class="bi bi-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
 
 </template>
 <script lang="ts" setup>
@@ -279,6 +263,7 @@ function moveBack() {
 }
 
 function saveAndContinue() {
+
     if (!startCompanyStore.companyInProgress?.id) {
         toast.default('You have not registered any company name', { position: 'top-right' })
         startCompanyStore.switchStage('-', 1)
@@ -369,7 +354,7 @@ function saveAndContinue() {
     formData.append('addresses[0][state]', form.state)
     formData.append('addresses[0][postal_code]', form.postal_code)
     formData.append('addresses[0][country]', form.country)
-    formData.append('addresses[0][is_corAddress]', instances.correspondingAddressIsSame ? '0' : '1')
+    formData.append('addresses[0][is_corAddress]', instances.correspondingAddressIsSame ? '1' : '0')
 
     if (!instances.correspondingAddressIsSame) {
         formData.append('addresses[1][address]', form.address2)
@@ -389,8 +374,8 @@ async function saveFromToApi(formData: FormData) {
         await api.companyEntity(formData)
         toast.success('Data Saved Successfully', { position: 'top-right' });
         form.isSaving = false
-        startCompanyStore.hasCompletedFounders = true
         startCompanyStore.getCompanyInProgress()
+        queryNewAction()
 
     } catch (error) {
         toast.error('Sorry, Something went wrong', { position: 'top-right' });
@@ -400,11 +385,19 @@ async function saveFromToApi(formData: FormData) {
     }
 }
 
-function addNewFounder() {
-    resetForm()
-    window.scrollTo(0, 0)
-    startCompanyStore.hasCompletedFounders = false
+function queryNewAction() {
+    useFxn.confirmTwoOptions('Do you want to add a new founder?', 'Add New', 'Go to next phase')
+        .then((resp) => {
+            if (resp.isConfirmed) {
+                resetForm()
+                window.scrollTo(0, 0)
+            }
+            else if (resp.isDenied) {
+                startCompanyStore.switchStage('+')
+            }
+        })
 }
+
 
 </script>
 <style lang="css" scoped>

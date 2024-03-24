@@ -89,5 +89,57 @@
         "XOF - West African CFA",
         "XPF - CFP Franc",
         "ZAR - C. South African Rand"
+    ],
+    "sourceOfFunds": [
+        "Personal Savings",
+        "Salary or Wages",
+        "Business Revenue",
+        "Investment Returns",
+        "Inheritance",
+        "Sale of Property or Assets",
+        "Loan or Credit",
+        "Gifts or Donations",
+        "Grants or Scholarships",
+        "Retirement Funds",
+        "Insurance Payouts"
+    ],
+    "initialSourceOfWealth": [
+        "Inheritance",
+        "Sale of a Business or Property",
+        "Savings Accumulated Over Time",
+        "Investments (Stocks, Bonds, Real Estate)",
+        "Lottery or Gambling Winnings",
+        "Gifts or Donations Received",
+        "Retirement Payouts",
+        "Insurance Payouts"
+    ],
+    "ongoingSourceOfIncome": [
+        "Salary or Wages",
+        "Business Revenue or Profits",
+        "Rental Income",
+        "Dividends or Interest from Investments",
+        "Pension or Retirement Benefits",
+        "Regular Income from Trusts or Annuities",
+        "Freelancing or Consulting Fees",
+        "Government Benefits or Subsidies"
+    ],
+    "levelOfActivity": [
+        "Low Volume, High Value Transactions",
+        "High Volume, Low Value Transactions",
+        "Moderate Volume and Value Transactions",
+        "Seasonal or Periodic Transactions",
+        "Occasional or Infrequent Transactions"
+    ],
+    "natureOfActivity": [
+        "Retail Sales or Services",
+        "Wholesale or Bulk Trading",
+        "Manufacturing or Production",
+        "Professional Services (Legal, Consulting, etc.)",
+        "Financial Services (Banking, Investments, etc.)",
+        "Technology and IT Services",
+        "Real Estate and Property Management",
+        "Import/Export Trade",
+        "Educational Services",
+        "Healthcare and Medical Services"
     ]
 }

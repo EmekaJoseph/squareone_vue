@@ -60,13 +60,32 @@ export default {
             // title: `${title}`,
             text: `${text}`,
             icon: 'question',
-            iconColor: '#873A70',
+            // iconColor: '#873A70',
             showCancelButton: true,
             confirmButtonText: `${btnText}`,
             cancelButtonText: 'cancel',
-            confirmButtonColor: '#873A70',
+            confirmButtonColor: '##0d6efd',
             reverseButtons: true,
             width: '300px',
+        })
+    },
+
+    confirmTwoOptions: (text: string, confirmText: string, denyText: string) => {
+        return Swal.fire({
+            // title: `${title}`,
+            text: `${text}`,
+            icon: 'question',
+            // iconColor: '#873A70',
+            showCancelButton: false,
+            showDenyButton: true,
+            confirmButtonText: `${confirmText}`,
+            denyButtonText: `${denyText}`,
+            confirmButtonColor: '#0d6efd',
+            denyButtonColor: '#111111',
+            // reverseButtons: true,
+            width: '300px',
+
+
         })
     },
 
