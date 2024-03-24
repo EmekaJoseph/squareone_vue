@@ -135,18 +135,24 @@ const founderType = ref<'individual' | 'corporate'>('individual')
 const startCompanyStore = useStartCompanyStore()
 
 const foundersAdded = computed(() => {
-    const individual = startCompanyStore.companyInProgress?.company_entity[0]?.individual ?? []
-    const corporate = startCompanyStore.companyInProgress?.company_entity[0]?.corporate ?? []
+    const entity = startCompanyStore.companyInProgress?.company_entity ?? [];
+    const arrayOfFounders: any[] = []
+    if (entity.length) {
+        entity.forEach((el: any) => {
+            arrayOfFounders.push(el.individual ?? el.corporate)
+        });
+    }
+    console.log(arrayOfFounders);
 
-    return [...individual, ...corporate]
+    return arrayOfFounders
 })
 
 
 function deleteFounder(item: any) {
-    useFxn.confirm('Delete this Record?', 'Yes, Delete')
+    useFxn.confirmDelete('Delete this Record?', 'Yes, Delete')
         .then((resp) => {
             if (resp.isConfirmed) {
-                // 
+
             }
         })
 }

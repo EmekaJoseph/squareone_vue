@@ -113,7 +113,7 @@ function moveBack() {
 function saveAndContinue() {
     if (!startCompanyStore.companyInProgress?.id) {
         toast.default('You have not registered any company name', { position: 'top-right' })
-        startCompanyStore.switchStage('-', 1)
+        startCompanyStore.switchStage('-', 2)
         return;
     }
 

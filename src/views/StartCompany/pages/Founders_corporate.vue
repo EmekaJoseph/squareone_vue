@@ -181,7 +181,7 @@ function moveBack() {
 function saveAndContinue() {
     if (!startCompanyStore.companyInProgress?.id) {
         toast.default('You have not registered any company name', { position: 'top-right' })
-        startCompanyStore.switchStage('-', 1)
+        startCompanyStore.switchStage('-', 2)
         return;
     }
 
@@ -244,7 +244,7 @@ async function saveFromToApi(formData: FormData) {
         await api.companyEntity(formData)
         toast.success('Data Saved Successfully', { position: 'top-right' });
         form.isSaving = false
-        startCompanyStore.getCompanyInProgress()
+        startCompanyStore.getCompanyInProgress('founder')
         queryNewAction()
 
     } catch (error) {
