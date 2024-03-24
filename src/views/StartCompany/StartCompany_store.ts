@@ -32,10 +32,10 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
         { stage: 7, name: 'Company Secretary' },
         { stage: 8, name: 'Source' },
         { stage: 9, name: 'Activities' },
-        { stage: 10, name: 'Uploads' },
-        { stage: 11, name: 'Summary' },
-        { stage: 12, name: 'Sign' },
-        { stage: 13, name: 'Pay' },
+        // { stage: 10, name: 'Uploads' },
+        { stage: 10, name: 'Summary' },
+        { stage: 11, name: 'Sign' },
+        { stage: 12, name: 'Pay' },
     ]
 
     function switchStage(command: string, number?: number) {
@@ -63,6 +63,9 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
         else if (!data.address) currentStage.value = 4
         else if (!data.company_entity) currentStage.value = 5
         else if (!data.owner_share.length || data.owner_share == null) currentStage.value = 6
+        else if (!data.fund_source.length || data.fund_source == null) currentStage.value = 8
+        else if (!data.activity) currentStage.value = 9
+        else currentStage.value = 10
 
     }
 
