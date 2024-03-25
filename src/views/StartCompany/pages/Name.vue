@@ -213,7 +213,6 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-//@ts-nocheck
 import { ref, reactive } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
@@ -261,18 +260,18 @@ function moveBack() {
 
 function saveAndContinue() {
 
-    if (checkFields(choice_level1, 'choice_level1')) return;
-    if (isSecond.value && checkFields(choice_level2)) return;
-    if (isThird.value && checkFields(choice_level3)) return;
-    if (isForth.value && checkFields(choice_level4)) return;
-    if (isFifth.value && checkFields(choice_level5)) return;
+    if (checkFields(choice_level1.value, 'choice_level1')) return;
+    if (isSecond.value && checkFields(choice_level2.value)) return;
+    if (isThird.value && checkFields(choice_level3.value)) return;
+    if (isForth.value && checkFields(choice_level4.value)) return;
+    if (isFifth.value && checkFields(choice_level5.value)) return;
 
     const formData = new FormData()
 
-    formData.append('names[0][eng_name]', choice_level1.eng_name)
-    formData.append('names[0][prefix]', choice_level1.prefix)
-    formData.append('names[0][chn_name]', choice_level1.chn_name)
-    formData.append('names[0][chn_prefix]', choice_level1.chn_prefix)
+    formData.append('names[0][eng_name]', choice_level1.value.eng_name)
+    formData.append('names[0][prefix]', choice_level1.value.prefix)
+    formData.append('names[0][chn_name]', choice_level1.value.chn_name)
+    formData.append('names[0][chn_prefix]', choice_level1.value.chn_prefix)
     formData.append('names[0][choice_level]', '1')
 
     const levels = [
@@ -284,10 +283,10 @@ function saveAndContinue() {
 
     for (const { level, index } of levels) {
         if (isSecond.value && index === 1 || isThird.value && index === 2 || isForth.value && index === 3 || isFifth.value && index === 4) {
-            formData.append(`names[${index}][eng_name]`, level.eng_name);
-            formData.append(`names[${index}][prefix]`, level.prefix);
-            formData.append(`names[${index}][chn_name]`, level.chn_name);
-            formData.append(`names[${index}][chn_prefix]`, level.chn_prefix);
+            formData.append(`names[${index}][eng_name]`, level.value.eng_name);
+            formData.append(`names[${index}][prefix]`, level.value.prefix);
+            formData.append(`names[${index}][chn_name]`, level.value.chn_name);
+            formData.append(`names[${index}][chn_prefix]`, level.value.chn_prefix);
             formData.append(`names[${index}][choice_level]`, `${(index + 1)}`);
         }
     }

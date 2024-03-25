@@ -1,7 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-
 export const foundersIdividualForm = defineStore('foundersIdividual', () => {
 
     const entity_type_id = ref('1')
@@ -37,6 +36,9 @@ export const foundersIdividualForm = defineStore('foundersIdividual', () => {
     const issuing_country = ref('Hong Kong')
     const isSaving = ref(false)
 
+    const correspondingAddressIsSame = ref(false)
+    const hasChineseName = ref(false)
+
 
     return {
         entity_type_id,
@@ -67,6 +69,8 @@ export const foundersIdividualForm = defineStore('foundersIdividual', () => {
         identity_no,
         passport_no,
         issuing_country,
-        isSaving
+        isSaving,
+        correspondingAddressIsSame,
+        hasChineseName
     }
 })
