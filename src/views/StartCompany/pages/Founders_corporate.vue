@@ -119,37 +119,13 @@ import { reactive } from 'vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
 import { useToast } from 'vue-toast-notification';
-
 import useFxn from '@/stores/Helpers/useFunctions';
+import { foundersCorporateForm } from './formsStore/Founders_corporate'
 
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 
-const form = reactive({
-    entity_type_id: '2',
-
-    company_name: '',
-    chn_company_name: '',
-    date_incorporated: new Date(),
-    address: '',
-    street_no: '',
-    state: '',
-    city: '',
-    country: 'Hong Kong',
-
-    postal_code: '',
-    registeration_no: '',
-    is_founder: false,
-    country_registered: 'Hong Kong',
-
-    business_nature_id: '',
-    phone: '',
-    email: '',
-    confirm_email: '',
-    first_name: '',
-    last_name: '',
-    isSaving: false
-})
+const form = foundersCorporateForm()
 
 function resetForm() {
     form.company_name = ''
@@ -172,6 +148,8 @@ function resetForm() {
     form.confirm_email = ''
     form.first_name = ''
     form.last_name = ''
+
+    startCompanyStore.checkedEntityCapacity = []
 }
 
 function moveBack() {

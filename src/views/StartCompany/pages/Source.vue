@@ -93,18 +93,11 @@ import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
 import { useToast } from 'vue-toast-notification';
+import { sourceForm } from './formsStore/Source'
 
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
-
-const form = reactive({
-    income_expected_source: '',
-    origin_funds: '',
-    wealth_initial_source: '',
-    income_outgoing_source: '',
-    isSaving: false
-})
-
+const form = sourceForm()
 
 function moveBack() {
     // 
@@ -139,7 +132,7 @@ async function saveFromToApi(formData: FormData) {
 
         toast.success('Data Saved Successfully', { position: 'top-right' });
         form.isSaving = false
-        startCompanyStore.switchStage('+')
+        // startCompanyStore.switchStage('+')
         startCompanyStore.getCompanyInProgress()
 
     } catch (error) {

@@ -175,51 +175,15 @@ import { reactive } from 'vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
 import { useToast } from 'vue-toast-notification';
-
 import useFxn from '@/stores/Helpers/useFunctions';
+import { foundersIdividualForm } from './formsStore/Founders_individual'
 
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 
-
-const form = reactive({
-    entity_type_id: '1',
-
-    address: '',
-    street_no: '',
-    city: '',
-    state: '',
-    postal_code: '',
-    country: 'Hong Kong',
-
-    address2: '',
-    street_no2: '',
-    city2: '',
-    state2: '',
-    postal_code2: '',
-    country2: 'Hong Kong',
-
-    first_name: '',
-    last_name: '',
-    chn_first_name: '',
-    chn_last_name: '',
-    dob: '',
-    nationality: 'Hong Kong',
-    phone: '',
-    email: '',
-    confirm_email: '',
-    occupation: '',
-    is_founder: false,
-    identity_type_id: '1',
-    identity_no: '',
-    passport_no: '',
-    issuing_country: 'Hong Kong',
-    isSaving: false
-})
+const form = foundersIdividualForm()
 
 function resetForm() {
-    form.entity_type_id = '1'
-
     form.address = ''
     form.street_no = ''
     form.city = ''
@@ -249,7 +213,7 @@ function resetForm() {
     form.identity_no = ''
     form.passport_no = ''
     form.issuing_country = 'Hong Kong'
-    form.isSaving = false
+    startCompanyStore.checkedEntityCapacity = []
 }
 
 const instances = reactive({

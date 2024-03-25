@@ -25,7 +25,8 @@
                         <input v-model="form.postal_code" class="form-control" type="text" placeholder="Postal Code">
                     </div>
                     <div class="col-md-12">
-                        <v-select v-model="form.country" :clearable="false" :options="startCompanyStore.countries" />
+                        <v-select placeholder="select country.." v-model="form.country" :clearable="false"
+                            :options="startCompanyStore.countries" />
                     </div>
                 </div>
             </section>
@@ -76,20 +77,12 @@ import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
 import { useToast } from 'vue-toast-notification';
+import { addressForm } from './formsStore/Address'
 
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 
-const form = reactive({
-    address: '',
-    street_no: '',
-    city: '',
-    state: '',
-    postal_code: '',
-    country: '',
-    isSaving: false
-})
-
+const form = addressForm()
 
 function moveBack() {
     // 
@@ -126,7 +119,7 @@ async function saveFromToApi(formData: FormData) {
 
         toast.success('Data Saved Successfully', { position: 'top-right' });
         form.isSaving = false
-        startCompanyStore.switchStage('+')
+        // startCompanyStore.switchStage('+')
         startCompanyStore.getCompanyInProgress()
 
     } catch (error) {

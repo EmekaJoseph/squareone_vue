@@ -65,16 +65,25 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Type</th>
-                                        <th>Remove</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in foundersAdded" :key="item">
-                                        <td>{{ item.first_name + ' ' + item.last_name }}</td>
-                                        <td>{{ item.entity_type_id == '1' ? 'Individual' : 'Corporate' }}</td>
+                                        <td v-if="item.entity_type_id == 1">{{ item.first_name + ' ' + item.last_name }}
+                                        </td>
+                                        <td v-else>{{ item.company_name }}</td>
+                                        <td class="text">{{ item.entity_type_id == '1' ? 'Individual' : 'Corporate' }}
+                                        </td>
                                         <td>
-                                            <button @click="deleteFounder(item)"
-                                                class="btn btn-link text-danger p-0 m-0">
+                                            <button class="btn btn-link btn-sm border-0 text-info p-0 m-0">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button @click="deleteFounder(item.company_entity_id)"
+                                                class="btn btn-link border-0 btn-sm text-danger p-0 m-0">
                                                 <i class="bi bi-x-lg"></i>
                                             </button>
                                         </td>
@@ -127,32 +136,44 @@ import { ref, computed } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import useFxn from '@/stores/Helpers/useFunctions';
+import api from '@/stores/Helpers/axios'
+import { useToast } from 'vue-toast-notification';
 
 import Founders_corporate from './Founders_corporate.vue';
 import Founders_individual from './Founders_individual.vue';
 
 const founderType = ref<'individual' | 'corporate'>('individual')
 const startCompanyStore = useStartCompanyStore()
+const toast = useToast()
 
 const foundersAdded = computed(() => {
     const entity = startCompanyStore.companyInProgress?.company_entity ?? [];
     const arrayOfFounders: any[] = []
     if (entity.length) {
         entity.forEach((el: any) => {
-            arrayOfFounders.push(el.individual ?? el.corporate)
+            const obj = el.individual || el.corporate;
+            if (obj) {
+                obj.entity_type_id = el.entity_type_id;
+                arrayOfFounders.push(obj);
+            }
         });
     }
-    console.log(arrayOfFounders);
-
     return arrayOfFounders
 })
 
 
-function deleteFounder(item: any) {
+function deleteFounder(id: any) {
     useFxn.confirmDelete('Delete this Record?', 'Yes, Delete')
-        .then((resp) => {
+        .then(async (resp) => {
             if (resp.isConfirmed) {
-
+                try {
+                    await api.deleteEntity(id)
+                    toast.success('Deleted successfully', { position: 'top-right' })
+                    startCompanyStore.getCompanyInProgress('founder')
+                } catch (error) {
+                    console.log(error);
+                    toast.error('Sorry Something went wrong', { position: 'top-right' })
+                }
             }
         })
 }

@@ -141,19 +141,11 @@ import { useStartCompanyStore } from '../StartCompany_store';
 
 import api from '@/stores/Helpers/axios'
 import { useToast } from 'vue-toast-notification';
+import { activitiesForm } from './formsStore/Activities'
 
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
-
-const form = reactive({
-    description: '',
-    activity_level: '',
-    activity_nature: '',
-    customer_location_operation: '',
-    country: '',
-    isSaving: false
-})
-
+const form = activitiesForm()
 
 function moveBack() {
     // 
@@ -191,7 +183,7 @@ async function saveFromToApi(formData: FormData) {
 
         toast.success('Data Saved Successfully', { position: 'top-right' });
         form.isSaving = false
-        startCompanyStore.switchStage('+')
+        // startCompanyStore.switchStage('+')
         startCompanyStore.getCompanyInProgress()
 
     } catch (error) {

@@ -213,56 +213,29 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
+//@ts-nocheck
 import { ref, reactive } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import { useToast } from 'vue-toast-notification';
 import api from '@/stores/Helpers/axios'
+import { nameForm } from './formsStore/Name';
+import { storeToRefs } from 'pinia';
 
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 
-const isSecond = ref(false)
-const isThird = ref(false)
-const isForth = ref(false)
-const isFifth = ref(false)
-
-const isSaving = ref(false)
-
-const choice_level1 = reactive({
-    eng_name: '',
-    chn_name: '',
-    prefix: 'Limited',
-    chn_prefix: '',
-})
-
-const choice_level2 = reactive({
-    eng_name: '',
-    chn_name: '',
-    prefix: 'Limited',
-    chn_prefix: '',
-})
-
-const choice_level3 = reactive({
-    eng_name: '',
-    chn_name: '',
-    prefix: 'Limited',
-    chn_prefix: '',
-})
-
-const choice_level4 = reactive({
-    eng_name: '',
-    chn_name: '',
-    prefix: 'Limited',
-    chn_prefix: '',
-})
-
-const choice_level5 = reactive({
-    eng_name: '',
-    chn_name: '',
-    prefix: 'Limited',
-    chn_prefix: '',
-})
+const form = nameForm()
+const { choice_level1,
+    choice_level2,
+    choice_level3,
+    choice_level4,
+    choice_level5,
+    isSecond,
+    isThird,
+    isForth,
+    isFifth,
+    isSaving, } = storeToRefs(form)
 
 function addForm() {
     for (const field of [isSecond, isThird, isForth, isFifth]) {
@@ -341,7 +314,7 @@ async function saveFromToApi(formData: FormData) {
         await api.registerCompany(formData)
         toast.success('Data Saved Successfully', { position: 'top-right' });
         isSaving.value = false
-        startCompanyStore.switchStage('+')
+        // startCompanyStore.switchStage('+')
         startCompanyStore.getCompanyInProgress()
 
     } catch (error) {
