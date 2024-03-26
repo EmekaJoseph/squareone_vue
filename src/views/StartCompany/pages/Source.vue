@@ -100,7 +100,7 @@ const startCompanyStore = useStartCompanyStore()
 const form = sourceForm()
 
 function moveBack() {
-    // 
+    startCompanyStore.switchStage('-')
 }
 
 function saveAndContinue() {

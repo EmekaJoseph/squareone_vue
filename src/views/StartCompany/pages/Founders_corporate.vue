@@ -153,7 +153,7 @@ function resetForm() {
 }
 
 function moveBack() {
-    // 
+    startCompanyStore.switchStage('-')
 }
 
 function saveAndContinue() {
@@ -224,6 +224,7 @@ async function saveFromToApi(formData: FormData) {
         form.isSaving = false
         startCompanyStore.getCompanyInProgress('founder')
         queryNewAction()
+        resetForm()
 
     } catch (error) {
         toast.error('Sorry, Something went wrong', { position: 'top-right' });
@@ -237,7 +238,6 @@ function queryNewAction() {
     useFxn.confirmTwoOptions('Do you want to add a new founder?', 'Add New', 'Go to next phase')
         .then((resp) => {
             if (resp.isConfirmed) {
-                resetForm()
                 window.scrollTo(0, 0)
             }
             else if (resp.isDenied) {

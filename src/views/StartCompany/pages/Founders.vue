@@ -71,9 +71,10 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in foundersAdded" :key="item">
-                                        <td v-if="item.entity_type_id == 1">{{ item.first_name + ' ' + item.last_name }}
+                                        <td class="text-capitalize" v-if="item.entity_type_id == 1">
+                                            {{ item.first_name + ' ' + item.last_name }}
                                         </td>
-                                        <td v-else>{{ item.company_name }}</td>
+                                        <td v-else class="text-capitalize">{{ item.company_name }}</td>
                                         <td class="text">{{ item.entity_type_id == '1' ? 'Individual' : 'Corporate' }}
                                         </td>
                                         <td>
@@ -168,7 +169,7 @@ function deleteFounder(id: any) {
             if (resp.isConfirmed) {
                 try {
                     await api.deleteEntity(id)
-                    toast.success('Deleted successfully', { position: 'top-right' })
+                    toast.success('Record deleted', { position: 'top-right' })
                     startCompanyStore.getCompanyInProgress('founder')
                 } catch (error) {
                     console.log(error);

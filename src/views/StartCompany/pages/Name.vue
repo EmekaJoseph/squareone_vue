@@ -213,7 +213,6 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import { useToast } from 'vue-toast-notification';
@@ -255,7 +254,7 @@ function removeForm() {
 }
 
 function moveBack() {
-    // 
+    startCompanyStore.switchStage('-')
 }
 
 function saveAndContinue() {

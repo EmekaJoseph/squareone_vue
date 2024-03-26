@@ -148,7 +148,7 @@ const startCompanyStore = useStartCompanyStore()
 const form = activitiesForm()
 
 function moveBack() {
-    // 
+    startCompanyStore.switchStage('-')
 }
 
 function saveAndContinue() {

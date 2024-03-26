@@ -80,7 +80,7 @@ const startCompanyStore = useStartCompanyStore()
 const form = descriptionForm()
 
 function moveBack() {
-    // 
+    startCompanyStore.switchStage('-')
 }
 
 function saveAndContinue() {

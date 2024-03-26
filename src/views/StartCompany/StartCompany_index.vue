@@ -39,15 +39,6 @@ onMounted(async () => {
     await startCompanyStore.getCompanyInProgress()
     startCompanyStore.getBusinessNatures()
     startCompanyStore.getCountries()
-
-    try {
-        const resp = await api.retrieveShaheolders()
-        console.log(resp, 'shearrrrr');
-
-    } catch (error) {
-        console.log(error);
-
-    }
 })
 
 

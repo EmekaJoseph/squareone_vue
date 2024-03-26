@@ -85,7 +85,7 @@ const startCompanyStore = useStartCompanyStore()
 const form = addressForm()
 
 function moveBack() {
-    // 
+    startCompanyStore.switchStage('-')
 }
 
 function saveAndContinue() {
