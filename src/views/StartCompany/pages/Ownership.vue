@@ -188,7 +188,16 @@ onMounted(() => {
     }
 
     retrieveShareHolders()
+
+    autoFillForm()
 })
+
+function autoFillForm() {
+    form.no_of_share = startCompanyStore.companyInProgress?.shares[0]?.no_of_share ?? ''
+    form.currency = startCompanyStore.companyInProgress?.shares[0]?.currency ?? ''
+    const totalAmount = startCompanyStore.companyInProgress?.shares[0]?.total_amount_paid ?? ''
+    form.total_amount_paid = totalAmount ? (parseFloat(totalAmount)).toFixed(2) : ''
+}
 
 
 async function retrieveShareHolders() {

@@ -135,7 +135,7 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from 'vue';
+import { onMounted } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 
@@ -146,6 +146,20 @@ import { activitiesForm } from './formsStore/Activities'
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 const form = activitiesForm()
+
+
+onMounted(() => {
+    form.description = startCompanyStore.companyInProgress?.activity?.description ?? ''
+    form.activity_level = startCompanyStore.companyInProgress?.activity?.activity_level ?? ''
+    form.activity_nature = startCompanyStore.companyInProgress?.activity?.activity_nature ?? ''
+
+    const locations = startCompanyStore.companyInProgress?.activity?.customer_location_operation ?? ''
+    form.customer_location_operation = locations !== '' ? locations.split(',') : ''
+
+    const countries = startCompanyStore.companyInProgress?.activity?.country ?? ''
+    form.country = countries !== '' ? countries.split(',') : ''
+})
+
 
 function moveBack() {
     startCompanyStore.switchStage('-')

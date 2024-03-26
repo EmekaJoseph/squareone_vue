@@ -15,8 +15,7 @@ const contentHeaders = (type: 'form' | 'json') => {
 }
 
 const setAuthorization = (config: any) => {
-    // const token = Cookies.get('_tokn');
-    const token = '1|McWljkGjsFkO7bzsKrX0GF4FTtLrQc1gAlmHnhJNfa82b7eb'
+    const token = Cookies.get('_tokn');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }

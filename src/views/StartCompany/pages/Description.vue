@@ -66,7 +66,7 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
+import { onMounted } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
@@ -82,6 +82,13 @@ const form = descriptionForm()
 function moveBack() {
     startCompanyStore.switchStage('-')
 }
+
+onMounted(() => {
+    form.description = startCompanyStore.companyInProgress?.description ?? ''
+    form.website = startCompanyStore.companyInProgress?.website ?? ''
+    form.business_nature_id = startCompanyStore.companyInProgress?.business_nature_id ?? ''
+})
+
 
 function saveAndContinue() {
     if (!startCompanyStore.companyInProgress?.id) {

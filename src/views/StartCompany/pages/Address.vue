@@ -72,7 +72,7 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-import { reactive } from 'vue';
+import { onMounted } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
@@ -83,6 +83,18 @@ const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 
 const form = addressForm()
+
+
+onMounted(() => {
+    form.address = startCompanyStore.companyInProgress?.address ?? ''
+    form.street_no = startCompanyStore.companyInProgress?.street_no ?? ''
+    form.city = startCompanyStore.companyInProgress?.city ?? ''
+    form.state = startCompanyStore.companyInProgress?.state ?? ''
+    form.postal_code = startCompanyStore.companyInProgress?.postal_code ?? ''
+    form.country = startCompanyStore.companyInProgress?.country ?? ''
+})
+
+
 
 function moveBack() {
     startCompanyStore.switchStage('-')

@@ -23,7 +23,7 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
     const natureOfActivity = jsonData.natureOfActivity
 
     const menus = [
-        { stage: 1, name: 'Structure' },
+        // { stage: 1, name: 'Structure' },
         { stage: 2, name: 'Name' },
         { stage: 3, name: 'Description' },
         { stage: 4, name: 'Address' },
@@ -65,7 +65,7 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
         else if (!data.company_entity || !data.company_entity.length) currentStage.value = 5
         else if (!data.owner_share.length || data.owner_share == null) currentStage.value = 6
         else if (!data.fund_source.length || data.fund_source == null) currentStage.value = 8
-        else if (!data.activity || !data.activity.length) currentStage.value = 9
+        else if (!data.activity) currentStage.value = 9
         else currentStage.value = 10
 
     }

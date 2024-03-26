@@ -88,7 +88,7 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
+import { onMounted } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import api from '@/stores/Helpers/axios'
@@ -98,6 +98,16 @@ import { sourceForm } from './formsStore/Source'
 const toast = useToast()
 const startCompanyStore = useStartCompanyStore()
 const form = sourceForm()
+
+
+
+onMounted(() => {
+    form.income_expected_source = startCompanyStore.companyInProgress?.fund_source[0]?.income_expected_source ?? ''
+    form.income_outgoing_source = startCompanyStore.companyInProgress?.fund_source[0]?.income_outgoing_source ?? ''
+    form.origin_funds = startCompanyStore.companyInProgress?.fund_source[0]?.origin_funds ?? ''
+    form.wealth_initial_source = startCompanyStore.companyInProgress?.fund_source[0]?.wealth_initial_source ?? ''
+})
+
 
 function moveBack() {
     startCompanyStore.switchStage('-')

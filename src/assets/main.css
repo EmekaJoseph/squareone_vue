@@ -71,3 +71,10 @@ th {
     font-weight: bold;
     background-color: var(--bs-gray-200) !important;
 }
+
+.everything-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
