@@ -1,12 +1,12 @@
 <template>
     <StartCompany_template>
         <template #main>
-            <section>
+            <section class="section">
                 <div class="fw-bolder fs-5">Name</div>
                 <span>Enter your preferred company names in order of priority.</span>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Primary Choice</div>
                 <div>This is your most preferred company name. Ensure it is the legal name intended for
                     registration.
@@ -35,7 +35,7 @@
                 </div>
             </section>
 
-            <section v-if="isSecond">
+            <section class="section" v-if="isSecond">
                 <div class="fw-bolder">Secondary Choice</div>
                 <div>These are alternative names you would consider should your primary choice be unavailable. List
                     them in descending order of preference.</div>
@@ -63,7 +63,7 @@
 
             </section>
 
-            <section v-if="isThird">
+            <section class="section" v-if="isThird">
                 <div class="fw-bold">Third Choice</div>
                 <div>This is your third choice company name. Ensure it is the legal name intended for
                     registration.
@@ -92,7 +92,7 @@
                 </div>
             </section>
 
-            <section v-if="isForth">
+            <section class="section" v-if="isForth">
                 <div class="fw-bold">Fourth Choice</div>
                 <div>This is your fourth company name. Ensure it is the legal name intended for
                     registration.
@@ -121,7 +121,7 @@
                 </div>
             </section>
 
-            <section v-if="isFifth">
+            <section class="section" v-if="isFifth">
                 <div class="fw-bold">Fifth Choice</div>
                 <div>This is your fifth company name. Ensure it is the legal name intended for
                     registration.
@@ -177,7 +177,7 @@
         </template>
 
         <template #info>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     What are the restrictions on naming my company?
                 </div>
@@ -187,7 +187,7 @@
                     and should not contain restricted terms or imply government affiliation without permission.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Can I include both English and Chinese in my company name?
                 </div>
@@ -199,7 +199,7 @@
                     Kong Companies Registry.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     What should I do if my preferred company name is already taken?
                 </div>

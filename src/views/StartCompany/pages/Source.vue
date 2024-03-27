@@ -1,7 +1,7 @@
 <template>
     <StartCompany_template>
         <template #main>
-            <section>
+            <section class="section">
                 <div class="fw-bolder fs-5">Source of funds</div>
                 <span>Source of funds</span>
             </section>
@@ -53,7 +53,7 @@
         </template>
 
         <template #info>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Why do I need to disclose the source of
 
@@ -64,7 +64,7 @@
                     laundering laws. It helps maintain financial transparency and accountability.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     What qualifies as a source of funds?
                 </div>
@@ -73,7 +73,7 @@
                     personal savings, loan or credit, investment income, or any other legitimate source.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Can the source of wealth and source of
 

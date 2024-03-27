@@ -1,13 +1,13 @@
 <template>
     <StartCompany_template>
         <template #main>
-            <section>
+            <section class="section">
                 <div class="fw-bolder fs-5">Description</div>
                 <span>This information facilitates a faster review process by
                     our team and remains strictly confidential.</span>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Describe your product or service</div>
                 <div>Please briefly describe the product or service you are developing.
                     Aim for a concise overview in one or two sentences.
@@ -21,7 +21,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Nature of business</div>
                 <div>Choose the primary category that best represents business nature of your company
                 </div>
@@ -35,7 +35,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Website or social media</div>
                 <div class="row g-2 mt-1">
                     <div class="col-md-8">

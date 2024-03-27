@@ -1,12 +1,12 @@
 <template>
     <StartCompany_template>
         <template #main>
-            <section>
+            <section class="section">
                 <div class="fw-bolder fs-5">Activities</div>
                 <span>Detail your company's primary business operations below.</span>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Describe your expected business activities</div>
                 <div>Provide a brief but clear description of your anticipated business activities.
                     Be as specific as possible to ensure accurate representation in your business
@@ -20,7 +20,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Level of activity</div>
                 <div>Select the volume and frequency of transactions your business expects to handle.
                 </div>
@@ -35,7 +35,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Nature of activity</div>
                 <div>Choose the main industry or sector that best represents your business operations.
                 </div>
@@ -50,7 +50,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Customer location and operation</div>
                 <div>Indicate the primary countries where your company will actively conduct business or serve
                     customers.
@@ -65,7 +65,7 @@
                 </div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">List of countries</div>
                 <div>List all additional countries where your company will have business activities or customer
                     interactions.
@@ -99,7 +99,7 @@
         </template>
 
         <!-- <template #info>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     What are the basic requirements to be a founder?
                 </div>
@@ -111,7 +111,7 @@
                     6 founders to be registered.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Is it possible to change founder details after the company has been incorporated?
                 </div>
@@ -120,7 +120,7 @@
                     be made post-incorporation.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Is it possible to change founder details after the company has been incorporated?
                 </div>

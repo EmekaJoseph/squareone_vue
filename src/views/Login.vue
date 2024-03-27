@@ -1,46 +1,64 @@
 <template>
-  <div class="bg-white">
-    <div class="container">
-      <div class="everything-center overflow-hidden">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="card bg-transparent border-0">
-            <div class="card-body">
-              <!-- <img src="/icons/sidebar/squareone_main.png" alt=""> -->
-              <h4 class="fw-bold lh-1">Sign In</h4>
-              <div class="lh-1">Access Squareone using your email and password</div>
+  <div class="bg-white min-vh-100">
+    <div class="row g-0">
+      <div class="col-lg-6 min-vh-100">
+        <div class="container">
+          <div class="everything-center overflow-hidden">
+            <div class="col-12 col-md-7">
+              <div class="card bg-transparent border-0">
+                <div class="card-body">
+                  <h4 class="fw-bold lh-1">Sign In</h4>
+                  <div>Access Squareone using your email and password</div>
 
-              <div class="row mt-4 g-3">
-                <div class="col-12">
-                  <label class="form-label fw-bold"> Email </label>
-                  <input v-model="form.email" type="text" class="form-control">
-                </div>
+                  <div class="row mt-4 g-3">
+                    <div class="col-12">
+                      <label class="form-label fw-bold"> Email </label>
+                      <input v-model="form.email" type="text" class="form-control">
+                    </div>
 
-                <div class="col-12">
-                  <div class="form-label fw-bold"> Password
-                    <span v-if="form.password" @click="changeInputType" class="float-end">
-                      <i v-if="inputType == 'password'" class="bi bi-eye-slash cursor-pointer"></i>
-                      <i v-else class="bi bi-eye cursor-pointer"></i>
-                    </span>
+                    <div class="col-12">
+                      <div class="form-label fw-bold"> Password
+                        <span v-if="form.password" @click="changeInputType" class="float-end">
+                          <i v-if="inputType == 'password'" class="bi bi-eye-slash cursor-pointer"></i>
+                          <i v-else class="bi bi-eye cursor-pointer"></i>
+                        </span>
+                      </div>
+                      <input v-model="form.password" :type="inputType" class="form-control">
+                    </div>
+
+                    <div class="col-12 mt-4">
+                      <button @click="submitForm" v-if="!form.isSaving" class="btn btn-primary w-100">
+                        SIGN IN <i class="bi bi-chevron-right"></i>
+                      </button>
+                      <button v-else class="btn btn-primary w-100" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        SIGNING IN...
+                      </button>
+
+                    </div>
                   </div>
-                  <input v-model="form.password" :type="inputType" class="form-control">
-                </div>
-
-                <div class="col-12 mt-4">
-                  <button @click="submitForm" v-if="!form.isSaving" class="btn btn-primary w-100">
-                    SIGN IN <i class="bi bi-chevron-right"></i>
-                  </button>
-                  <button v-else class="btn btn-primary w-100" type="button" disabled>
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    SIGNING IN...
-                  </button>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="col-lg-6 d-none d-lg-block bg-body-tertiary  min-vh-100">
+        <div class="container">
+          <div class="everything-center overflow-hidden">
+            <div class="col-10">
+              <div class="card border-0 shadow-sm bg-light">
+                <div class="card-body">
+                  <img style="width: 100%;" src="/images/snap_shot.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </template>
 

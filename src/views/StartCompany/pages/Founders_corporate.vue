@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section>
+        <section class="section">
             <div class="fw-bold fs-5">About your Company </div>
             <div class="fw-bolder">Your company name</div>
             <span>Enter your legal company name</span>
@@ -17,7 +17,7 @@
         </section>
 
 
-        <section class="row g-2">
+        <section class="row g-2 section">
             <div class="col-md-6">
                 <label class="form-label fw-bold">Date of incorporation </label>
                 <VueDatePicker :format="useFxn.dateDisplay" hide-input-icon :clearable="false" :max-date="new Date()"
@@ -36,7 +36,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="section">
             <div class="fw-bolder">Address </div>
             <div class="row g-2 mt-1">
                 <div class="col-12">
@@ -62,7 +62,7 @@
             </div>
         </section>
 
-        <section class="row g-2">
+        <section class="row g-2 section">
             <div class="col-md-10">
                 <label class=" fw-bolder">Authorised Person</label>
                 <div class="row g-2">
@@ -109,7 +109,6 @@
                 Saving, Please wait
             </button>
         </div>
-
 
     </div>
 

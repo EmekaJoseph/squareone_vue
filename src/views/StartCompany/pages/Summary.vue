@@ -1,13 +1,13 @@
 <template>
     <StartCompany_template>
         <template #main>
-            <section>
+            <section class="section">
                 <h5 class="fw-bolder">Summary</h5>
                 <span>Please make sure the following information is correct. We'll use
                     it to generate your documents.</span>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold mb-2">Company</div>
 
                 <section class="card bg-light border-0">
@@ -91,7 +91,7 @@
             </section>
 
 
-            <section>
+            <section class="section">
                 <div class="fw-bold mb-2">Founders</div>
 
                 <section class="card bg-light border-0">
@@ -246,7 +246,7 @@
         </template>
 
         <template #info>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     What are the basic requirements to be a founder?
                 </div>
@@ -258,7 +258,7 @@
                     6 founders to be registered.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Is it possible to change founder details after the company has been incorporated?
                 </div>
@@ -267,7 +267,7 @@
                     be made post-incorporation.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Is it possible to change founder details after the company has been incorporated?
                 </div>

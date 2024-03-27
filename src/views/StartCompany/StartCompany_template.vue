@@ -86,7 +86,6 @@ import StartCompany_mobilemenu from './StartCompany_mobilemenu.vue';
 import { useAuthStore } from '@/stores/authStore';
 import { useRouter } from 'vue-router';
 
-
 const authStore = useAuthStore()
 const router = useRouter()
 
@@ -103,7 +102,7 @@ const activeCompanyName = computed(() => {
 })
 
 
-async function logout() {
+function logout() {
     authStore.logout()
     router.replace({ name: 'Login' })
 }

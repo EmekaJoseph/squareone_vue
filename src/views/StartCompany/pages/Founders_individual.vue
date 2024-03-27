@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="section">
         <div class="fw-bold fs-5">About you </div>
         <div class="fw-bolder">Your name in English </div>
         <span>Enter your first and last name as they appear on a government ID</span>
@@ -21,7 +21,7 @@
         </div>
     </section>
 
-    <section v-if="form.hasChineseName">
+    <section class="section" v-if="form.hasChineseName">
         <div class="fw-bolder">Your name in Chinese </div>
         <span>Enter your first and last name as they appear on a government ID</span>
         <div class="row mt-1 g-2">
@@ -35,7 +35,7 @@
         </div>
     </section>
 
-    <section class="row g-2">
+    <section class="row g-2 section">
         <div class="col-md-6">
             <label class="form-label fw-bold">Date of Birth</label>
             <VueDatePicker :format="useFxn.dateDisplay" input-class-name="dob-settings-input" hide-input-icon
@@ -52,7 +52,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="section">
         <div class="fw-bolder">Your residential address </div>
         <div class="row g-2 mt-1">
             <div class="col-12">
@@ -77,7 +77,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="section">
         <div class="fw-bolder">Your corresponding address </div>
         <span>
             <div class="form-check ">
@@ -110,7 +110,7 @@
         </div>
     </section>
 
-    <section class="row g-2">
+    <section class="row g-2 section">
         <div class="col-md-8">
             <label class=" fw-bolder">ID type</label>
             <select class="form-select" v-model="form.identity_type_id">

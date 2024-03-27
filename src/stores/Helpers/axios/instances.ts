@@ -4,6 +4,7 @@ import axios from 'axios'
 import Cookies from 'js-cookie';
 
 const hostURL = 'http://127.0.0.1:8000';
+
 const apiURL = `${hostURL}/api/`;
 
 const contentHeaders = (type: 'form' | 'json') => {

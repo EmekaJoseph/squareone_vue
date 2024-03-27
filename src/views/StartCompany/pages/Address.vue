@@ -1,11 +1,11 @@
 <template>
     <StartCompany_template>
         <template #main>
-            <section>
+            <section class="section">
                 <div class="fw-bolder fs-5">Registered Address</div>
             </section>
 
-            <section>
+            <section class="section">
                 <div class="fw-bold">Registered Office Address</div>
 
                 <div class="row g-2 mt-1">
@@ -49,7 +49,7 @@
         </template>
 
         <template #info>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     What is registered office address?
                 </div>
@@ -59,7 +59,7 @@
                     and notices are sent.
                 </div>
             </section>
-            <section>
+            <section class="section">
                 <div class="fw-bold">
                     Why can’t I change the registered office address?
                 </div>
