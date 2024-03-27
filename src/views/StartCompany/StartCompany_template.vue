@@ -53,7 +53,7 @@
                         ({{ activeCompanyName }})
                     </span>
                     <span class="float-end">
-                        <button @click="logout" class="btn btn-link btn-sm p-0 text-decoration-none">
+                        <button @click="logout" class="btn btn-link btn-sm p-0 text-decoration-none border-0">
                             Logout <i class="bi bi-box-arrow-right"></i>
                         </button>
                     </span>
@@ -102,8 +102,8 @@ const activeCompanyName = computed(() => {
 })
 
 
-function logout() {
-    authStore.logout()
+async function logout() {
+    await authStore.logout()
     router.replace({ name: 'Login' })
 }
 </script>

@@ -9,7 +9,7 @@ export const useStartCompanyStore = defineStore('startCompanyStore', () => {
     const isActiveMenu = (stage: number) => currentStage.value == stage
 
     const businessNatures = ref<any[]>([])
-    const companyInProgress = ref<any>()
+    const companyInProgress = ref<any>({})
     const countries = ref<any[]>([])
     const checkedEntityCapacity = ref<any[]>([])
 

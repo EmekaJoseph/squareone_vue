@@ -213,6 +213,7 @@
     </StartCompany_template>
 </template>
 <script lang="ts" setup>
+import { onMounted } from 'vue';
 import StartCompany_template from '../StartCompany_template.vue';
 import { useStartCompanyStore } from '../StartCompany_store';
 import { useToast } from 'vue-toast-notification';
@@ -233,7 +234,59 @@ const { choice_level1,
     isThird,
     isForth,
     isFifth,
-    isSaving, } = storeToRefs(form)
+    isSaving,
+} = storeToRefs(form)
+
+onMounted(() => {
+    const choiceNames = startCompanyStore.companyInProgress?.names ?? []
+    if (choiceNames.length) {
+
+        const level1 = choiceNames.find((x: any) => x.choice_level == 1);
+        if (level1) {
+            choice_level1.value.eng_name = level1.eng_name.split(' ')[0]
+            choice_level1.value.prefix = level1.eng_name.split(' ')[1]
+            choice_level1.value.chn_name = level1.chn_name.split(' ')[0]
+            choice_level1.value.chn_prefix = level1.chn_name.split(' ')[1]
+        }
+
+        const level2 = choiceNames.find((x: any) => x.choice_level == 2);
+        if (level2) {
+            isSecond.value = true
+            choice_level2.value.eng_name = level2.eng_name.split(' ')[0]
+            choice_level2.value.prefix = level2.eng_name.split(' ')[1]
+            choice_level2.value.chn_name = level2.chn_name.split(' ')[0]
+            choice_level2.value.chn_prefix = level2.chn_name.split(' ')[1]
+        }
+
+        const level3 = choiceNames.find((x: any) => x.choice_level == 3);
+        if (level3) {
+            isThird.value = true
+            choice_level3.value.eng_name = level3.eng_name.split(' ')[0]
+            choice_level3.value.prefix = level3.eng_name.split(' ')[1]
+            choice_level3.value.chn_name = level3.chn_name.split(' ')[0]
+            choice_level3.value.chn_prefix = level3.chn_name.split(' ')[1]
+        }
+
+        const level4 = choiceNames.find((x: any) => x.choice_level == 4);
+        if (level4) {
+            isForth.value = true
+            choice_level4.value.eng_name = level4.eng_name.split(' ')[0]
+            choice_level4.value.prefix = level4.eng_name.split(' ')[1]
+            choice_level4.value.chn_name = level4.chn_name.split(' ')[0]
+            choice_level4.value.chn_prefix = level4.chn_name.split(' ')[1]
+        }
+
+        const level5 = choiceNames.find((x: any) => x.choice_level == 5);
+        if (level5) {
+            isFifth.value = true
+            choice_level5.value.eng_name = level5.eng_name.split(' ')[0]
+            choice_level5.value.prefix = level5.eng_name.split(' ')[1]
+            choice_level5.value.chn_name = level5.chn_name.split(' ')[0]
+            choice_level5.value.chn_prefix = level5.chn_name.split(' ')[1]
+        }
+    }
+})
+
 
 function addForm() {
     for (const field of [isSecond, isThird, isForth, isFifth]) {
@@ -266,6 +319,8 @@ function saveAndContinue() {
     if (isFifth.value && checkFields(choice_level5.value)) return;
 
     const formData = new FormData()
+
+    formData.append('company_id', startCompanyStore.companyInProgress?.id ?? '')
 
     formData.append('names[0][eng_name]', choice_level1.value.eng_name)
     formData.append('names[0][prefix]', choice_level1.value.prefix)
@@ -320,8 +375,6 @@ async function saveFromToApi(formData: FormData) {
         isSaving.value = false
     }
 }
-
-
 
 </script>
 <style lang="css" scoped></style>
